@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>clock</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+</head>
+<body style="box-sizing: border-box; margin: 0; padding: 0; width: 100%; height: 100%">
+<div style="width: 100%; height: 100%; background-color: black; color: white; font-size: 250px">
+<!--    <span id="hour" style=""></span>-->
+<!--    <span>:</span>-->
+<!--    <span id="minute" style=""></span>-->
+<!--    <span>:</span>-->
+<!--    <span id="second" style=""></span>-->
+    <div id="clock" style="text-align: center; line-height: 100vh"></div>
+</div>
+</body>
+</html>
+<script>
+    function timeFormatter(){
+        var time = new Date().toTimeString().split(" ")[0];
+        return time;
+    }
+    // function serverTime(){
+    //     var xmlHttpRequest;
+    //     if(window.XMLHttpRequest){// code for Firefox, Mozilla, IE7, etc.
+    //         xmlHttpRequest = new XMLHttpRequest();
+    //     }else if(window.ActiveXObject){// code for IE5, IE6
+    //         xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+    //     }else{
+    //         return;
+    //     }
+    //
+    //     xmlHttpRequest.open('HEAD', window.location.href.toString(), false);
+    //     xmlHttpRequest.setRequestHeader("ContentType", "text/html");
+    //     xmlHttpRequest.send('');
+    //
+    //     var serverDate = xmlHttpRequest.getResponseHeader("Date");
+    //     var date = new Date(serverDate);
+    //     var time = date.toTimeString().split(" ")[0];
+    //     return date;
+    // }
+    $(document).ready(function(){
+        window.setInterval(function () {
+                // var now = new Date();
+                // console.log(now.getSeconds());
+                // $("#hour").text(now.getHours());
+                // $("#minute").text(now.getMinutes());
+                // $("#second").text(now.getSeconds());
+
+            $("#clock").text(timeFormatter());
+            // $("#clock").text(serverTime());
+            }, 1000
+        );
+    });
+</script>
